@@ -1,3 +1,6 @@
+> [!WARNING]
+> 🚧 **Under construction — not operational.** `rustfortimcp` has no working code yet; it is on hold until a FortiGate lab device is available. Nothing here is ready for use.
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/mechub-mark.svg">
