@@ -14,9 +14,9 @@
 
 `rustfortimcp` will be the Fortinet member of the mechub MCP server family: a
 curated, scoped, audited MCP surface over FortiOS (and later FortiManager),
-built **mecmcp-native** on [`mecmcp`](https://github.com/fastrevmd-lab/mecmcp)
-like [`rustjunosmcp`](https://github.com/fastrevmd-lab/rustjunosmcp) and
-[`rustpanosmcp`](https://github.com/fastrevmd-lab/rustpanosmcp).
+built **mecmcp-native** on [`mecmcp`](https://github.com/mechubsec/mecmcp)
+like [`rustjunosmcp`](https://github.com/mechubsec/rustjunosmcp) and
+[`rustpanosmcp`](https://github.com/mechubsec/rustpanosmcp).
 
 ## Status
 
@@ -29,7 +29,7 @@ like [`rustjunosmcp`](https://github.com/fastrevmd-lab/rustjunosmcp) and
 - **Phase 2:** FortiManager JSON-RPC — ADOMs, policy packages,
   install-to-device.
 
-Design and scope: [mecmcp#423](https://github.com/fastrevmd-lab/mecmcp/issues/423).
+Design and scope: [mecmcp#423](https://github.com/mechubsec/mecmcp/issues/423).
 
 ## License
 
