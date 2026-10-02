@@ -31,6 +31,18 @@ like [`rustjunosmcp`](https://github.com/fastrevmd-lab/rustjunosmcp) and
 
 Design and scope: [mecmcp#423](https://github.com/fastrevmd-lab/mecmcp/issues/423).
 
+## Redaction
+
+This server routes **all device and API output through the shared [`mecmcp-redact`](https://github.com/mechubsec/mecmcp/tree/main/crates/mecmcp-redact) crate** using the FortiOS-specific [`Profile`](https://github.com/mechubsec/mecmcp/blob/main/crates/mecmcp-redact/src/profile.rs).
+
+The profile ensures that FortiOS-specific secret patterns (including the `ENC` prefixed ciphertext markers used in CLI output and API responses) are redacted before any content reaches the model. This includes PSK secrets, API tokens, password hashes, and private keys embedded in device configurations.
+
+Redaction is applied at the boundary between the vendor read API and the tool result, not in the tool logic itself. No tool may return raw device config or API payloads — every output path goes through mecmcp-redact.
+
+See [`mecmcp-redact`](https://github.com/mechubsec/mecmcp/tree/main/crates/mecmcp-redact) for the complete redaction policy, denylist, and value-shape catch-alls.
+
+---
+
 ## License
 
 Licensed under [MIT](LICENSE).
