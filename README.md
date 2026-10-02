@@ -34,6 +34,16 @@ like [`rustjunosmcp`](https://github.com/mechubsec/rustjunosmcp) and
 
 Design and scope: [mecmcp#423](https://github.com/mechubsec/mecmcp/issues/423).
 
+## Redaction
+
+When implemented, this server **must** route all device and API output, including error text, through [`mecmcp-redact`](https://github.com/mechubsec/mecmcp/tree/main/crates/mecmcp-redact) via `redact_json_value_with_profile`, using a FortiOS `Profile` hook declared in this crate. The generic value-shape scan already catches `ENC`-prefixed ciphertext, PEM material and password hashes. The FortiOS profile adds wholesale withholding for vendor-rendered bodies and any key exemptions. No tool may return raw device config or API payloads.
+
+Redaction must be applied at the boundary between the vendor read API and the tool result, not in the tool logic itself.
+
+See [`mecmcp-redact`](https://github.com/mechubsec/mecmcp/tree/main/crates/mecmcp-redact) for the complete redaction policy, denylist, and value-shape catch-alls.
+
+---
+
 ## License
 
 Licensed under [MIT](LICENSE).
